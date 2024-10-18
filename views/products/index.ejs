@@ -1,7 +1,6 @@
 <% layout('/layouts/boilerplate') %>
 <%- include('../partials/navbar') %>
 <!-- For adding the navbar and stuffs from the partials -->
-<h1 class="text-center my-4">Product List</h1>
 <div class="container">
     <div class="row">
         <% products.forEach(function(product) { %>
@@ -14,8 +13,12 @@
                         <p class="card-text"><%= product.desc %></p>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary">Buy Now</button>
+                        <a href="/products/<%= product.id %>" class="btn btn-primary">View Now</a>
                     </div>
+                    <div class="card-footer">
+                        <a href="/products/<%= product.id %>/edit" class="btn btn-primary">Edit</a>
+                    </div>
+                    
                 </div>
             </div>
         <% }) %>

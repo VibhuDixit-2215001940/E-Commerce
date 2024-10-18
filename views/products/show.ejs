@@ -1,0 +1,26 @@
+<%- include('../partials/navbar') %>
+<% layout('/layouts/boilerplate') %>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="<%= foundProduct.img %>" class="img-fluid rounded-start" alt="<%= foundProduct.name %>">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h2 class="card-title"><%= foundProduct.name %></h2>
+                                <h4 class="text-muted">$<%= foundProduct.price %></h4>
+                                <p class="card-text"><%= foundProduct.desc %></p>
+                                <a href="/products" class="btn btn-primary">Back to Products</a>
+                                <form action="/products/<%= foundProduct._id %>?_method=DELETE" method="post">
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
