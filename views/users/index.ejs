@@ -1,0 +1,18 @@
+<% layout('/layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<h1 class="text-center my-4">User Details</h1>
+<div class="container">
+    <div class="row">
+        <% users.forEach(function(i) { %>
+            <div class="col-md-4 mb-4"> <!-- 3 users per row -->
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: <%= i.name %></h5>
+                        <p class="card-text">Email: <%= i.email %></p>
+                        <p class="card-text">Password: <%= i.password %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

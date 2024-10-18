@@ -1,6 +1,7 @@
 //This file is always made to just add the dummy/initial data to the database!!
 const mongoose = require('mongoose')
 const Product = require('./models/Product')
+const User = require('./models/User')
 
 const products = [
     {
@@ -34,11 +35,23 @@ const products = [
         desc: 'This is Product 4'
     }
 ]
-
+const users = [
+    {
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        password: 'password123'
+    },
+    {
+        name: 'Goel Doe',
+        email: 'jaan@example.com',
+        password: 'password456'
+    }
+]
 //Database ke command jab ham use karte hai idhar toh wo command promise return karte hai jinhe resolve karne ke liye async & awiat use kai jata hai ok !
 //Ya phir data base maii dummy data ko add karne mai thoda time lagega and ya toh wo kaam hoga ya nahi .... so hamko uska wait karna hota hai by using async and await!
 async function seedDb(){
     await Product.insertMany(products);
+    await User.insertMany(users);
     console.log("Database seeded!");
 }
 

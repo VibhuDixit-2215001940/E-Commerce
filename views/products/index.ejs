@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-    <style>
-        .product {
-            border: 1px solid #ddd;
-            margin: 20px;
-            padding: 20px;
-            width: 250px;
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
-    <h1>Product List</h1>
-    <div class="products">
+<% layout('/layouts/boilerplate') %>
+<%- include('../partials/navbar') %>
+<!-- For adding the navbar and stuffs from the partials -->
+<h1 class="text-center my-4">Product List</h1>
+<div class="container">
+    <div class="row">
         <% products.forEach(function(product) { %>
-            <div class="product">
-                <h2><%= product.name %></h2>
-                <img src="<%= product.img %>" alt="<%= product.name %>">
-                <p>Price: $<%= product.price %></p>
-                <p>Description: <%= product.desc %></p>
+            <div class="col-md-4 mb-4"> <!-- 3 products per row -->
+                <div class="card h-100 text-center">
+                    <img src="<%= product.img %>" class="card-img-top" alt="<%= product.name %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.name %></h5>
+                        <p class="card-text">Price: $<%= product.price %></p>
+                        <p class="card-text"><%= product.desc %></p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
             </div>
         <% }) %>
     </div>
-</body>
-</html>
+</div>
