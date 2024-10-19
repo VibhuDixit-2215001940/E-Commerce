@@ -5,8 +5,11 @@ const router = express.Router();//Mini instance of app .... as app is the instan
 const Product = require('../models/Product');//For accessing data from the db
 
 router.get('/products', async function(req, res) {//To show all the products
-    let products = await Product.find()
-    res.render('products/index', {products});
+    // const cartCount = req.session.cartCount || 0; // Get cart count from session
+    console.log('Session:', req.session);
+
+    let products = await Product.find().populate('reviews');
+    res.render('products/index', { products});
 })
 router.get('/products/new', function(req, res) {//To show the form for new products
     res.render('products/new');
@@ -36,4 +39,15 @@ router.delete('/products/:id', async function(req, res) {//To delete a product
     await Product.findByIdAndDelete(id);
     res.redirect('/products');
 })
+router.post('/products/:id/buy', async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    if (!req.session) {
+        req.session = {}; // Initialize session if undefined
+    }
+    req.session.cartCount = req.session.cartCount || 0; // Initialize if undefined
+    req.session.cartCount++; // Increment cartCount
+    res.redirect(`/products/${id}`);
+});
+
 module.exports = router;

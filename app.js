@@ -8,6 +8,8 @@ const userRoutes = require('./routes/user');
 const reviewRoutes = require('./routes/review');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
+const searchRoutes = require('./routes/search');
+const session = require('express-session');
 
 app.use(methodOverride('_method'));
 app.engine('ejs',ejsMate)
@@ -25,6 +27,19 @@ app.get('/', function (req, res) {
 app.use(productRoutes)
 app.use(userRoutes)
 app.use(reviewRoutes)
+app.use(searchRoutes)
+app.use(session({
+    secret: 'your_secret_key', // Use a secure secret key
+    resave: true,
+    saveUninitialized: true,
+}));
+function initializeCartCount(req, res, next) {
+    if (!req.session.cartCount) {
+        req.session.cartCount = 0; // Initialize cartCount
+    }
+    next();
+}
+app.use(initializeCartCount);
 app.get('*', function (req, res) {
     res.send('Randibaaz kaha dekh raha hai!!');
 })

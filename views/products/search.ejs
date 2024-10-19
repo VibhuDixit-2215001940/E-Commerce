@@ -1,0 +1,25 @@
+<%- include('../partials/navbar') %>
+<% layout('/layouts/boilerplate') %>
+
+<div class="container mt-5">
+    <h1>Search Results for "<%= searchTerm %>"</h1>
+    
+    <% if (foundProducts.length > 0) { %>
+        <div class="row">
+            <% foundProducts.forEach(i => { %>
+                <div class="col-6 col-md-3 mb-3"> <!-- Smaller grid size -->
+                    <div class="card h-100 shadow-sm"> <!-- Add h-100 for equal height -->
+                        <img src="<%= i.img %>" class="card-img-top img-fluid" alt="<%= i.name %>" style="height: 150px; object-fit: cover;"> <!-- Smaller image size -->
+                        <div class="card-body p-2"> <!-- Reduced padding -->
+                            <h6 class="card-title text-truncate"><%= i.name %></h6> <!-- Smaller title with truncation -->
+                            <p class="card-text small text-muted"><%= i.desc %></p> <!-- Smaller text -->
+                            <a href="/products/<%= i._id %>" class="btn btn-sm btn-primary">View Product</a> <!-- Smaller button -->
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No products found matching "<%= searchTerm %>".</p>
+    <% } %>
+</div>

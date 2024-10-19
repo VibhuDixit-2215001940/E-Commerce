@@ -9,8 +9,9 @@
                     <img src="<%= product.img %>" class="card-img-top" alt="<%= product.name %>">
                     <div class="card-body">
                         <h5 class="card-title"><%= product.name %></h5>
-                        <p class="card-text">Price: $<%= product.price %></p>
-                        <p class="card-text"><%= product.desc %></p>
+                        <p class="card-text">Price: ₹<%= product.price %></p>
+                        <p class="card-text">Description: <%= product.desc %></p>
+                        <p>Total reviews: <%= product.reviews.length %></p>
                     </div>
                     <div class="card-footer">
                         <a href="/products/<%= product.id %>" class="btn btn-primary">View Now</a>
