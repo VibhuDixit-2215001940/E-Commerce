@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const seedDb = require('./seed')
 const productRoutes = require('./routes/product');
 const userRoutes = require('./routes/user');
+const reviewRoutes = require('./routes/review');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 
@@ -23,6 +24,7 @@ app.get('/', function (req, res) {
 })
 app.use(productRoutes)
 app.use(userRoutes)
+app.use(reviewRoutes)
 app.get('*', function (req, res) {
     res.send('Randibaaz kaha dekh raha hai!!');
 })

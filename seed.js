@@ -5,34 +5,15 @@ const User = require('./models/User')
 
 const products = [
     {
-        name: 'Danny',
-        img : "https://images.unsplash.com/photo-1518921754906-0d74d5592e93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cnVzc2lhbiUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
-        price: 10.99,
-        desc: 'This is Product 1'
-    },
-    {
-        name: 'Mia',
-        img : "https://plus.unsplash.com/premium_photo-1665663927587-a5b343dff128?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cnVzc2lhbiUyMGdpcmx8ZW58MHx8MHx8fDA%3D",
-        price: 15.99,
-        desc: 'This is Product 2'
-    },
-    {
-        name: 'Ammy',
-        img : "https://images.unsplash.com/photo-1662113238040-f782500095d3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJ1c3NpYW4lMjBnaXJsfGVufDB8fDB8fHww",
-        price: 20.99,
-        desc: 'This is Product 3'
-    },
-    {
-        name: 'Salena',
-        img : "https://images.unsplash.com/flagged/photo-1576659529462-670a89313ea5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNlbGVuYSUyMGdvbWV6fGVufDB8fDB8fHww",
+        name: 'Shiv Ji',
+        img : "https://i.pinimg.com/736x/53/c9/91/53c99138f7a01bf171ab931d6029ffcb.jpg",
         price: 25.99,
-        desc: 'This is Product 4'
-    },
-    {
-        name: 'Urfi',
-        img : "https://images.unsplash.com/photo-1565325058867-e9a6c855ebb8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2VsZW5hJTIwZ29tZXp8ZW58MHx8MHx8fDA%3D",
-        price: 25.99,
-        desc: 'This is Product 4'
+        desc: 'This is Product 4',
+        review:
+            {
+                rating: 5,
+                comment: 'This is a great product! I love it.'
+            }
     }
 ]
 const users = [
