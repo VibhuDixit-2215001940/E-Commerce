@@ -18,9 +18,9 @@ router.delete('/products/:productId/review/:reviewId', async function(req, res) 
   const product = await Product.findById(productId); // Find the product by ID
   const reviewIndex = product.reviews.findIndex(review => review._id.toString() === reviewId);
   if (reviewIndex > -1) {
-      product.reviews.splice(reviewIndex, 1); // Remove the review from the array
-      await product.save();  // Save the updated product
+      product.reviews.splice(reviewIndex, 1);
+      await product.save(); 
   }
-  res.redirect(`/products/${productId}`);  // Redirect back to the product page
+  res.redirect(`/products/${productId}`); 
 });
 module.exports = router;

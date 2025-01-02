@@ -22,7 +22,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/shopping')
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log('Db Error: ' + err));
 app.get('/', function (req, res) {
-    res.send('Raand!!')
+    res.send('Ohhh KKKKKK!!')
 })
 app.use(productRoutes)
 app.use(userRoutes)
